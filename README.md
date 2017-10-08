@@ -1,8 +1,8 @@
 # Pyroselytism
 A very rudimentary script for converting a large quantity of pdf-files to txt-files, with pyPDF2 as it's only dependency.
-You can add cleanup (read: replace substring) rules in a dict for ease of use. 
+You can add cleanup rules in a dict for ease of use. 
 
-*Pyro (fire) + Proselytism (conversion to a religion, always make me giggle and think back to the Age of Empires days. "Wololooo!"). Since this is a mass conversion of pdf files script, it was either a monk manuscript duplication reference or this as its name.*
+*When thinking about conversion, I tend to be nostalgic and think back to the Age of Empires days. Wololooo! Since this script converts pdf files in large quantities with ease, it was either a monk manuscript duplication reference or this as its name.*
 
 ## How to run
 Just download the script and place and run it where you want to generate the txt-files. Point to the rootdir of your pdf files. (or higher level directory, as the script will try to find all .pdf files)
