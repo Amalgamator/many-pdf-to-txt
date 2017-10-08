@@ -9,7 +9,7 @@ import PyPDF2
 # II.  Fix decode/encode issues.
 # I.   Optimize for speed.
 
-rootdir ='/home/red-ibis/Documents/scifi_fantasy_collection'
+rootdir ='/your/top-level/directory/'
 
 
 def cleanup(str_to_clean):
