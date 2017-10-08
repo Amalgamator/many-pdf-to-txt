@@ -10,6 +10,6 @@ Just download the script and place and run it where you want to generate the txt
 ## TO DO (priority low to high)
 - Exception '.PDF' instead of '.pdf' as target, dunno if needed/relevant?
 - Dig into pdf protocols for more info on how to do things better
-- Maintain directory structure.
+- Maintain target directory structure.
 - Optimize for speed.
 - Fix decode/encode issues.
