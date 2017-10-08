@@ -18,9 +18,9 @@ def cleanup(str_to_clean):
 
 	# define desired replacements here
 	rep = { "™":" ", 
-			"Š":"—",
-			"€":" "
-		  } 
+		"Š":"—",
+		"€":" "
+	      } 
 
 	# the replacement in one pass over the string!
 	rep = dict((re.escape(k), v) for k, v in rep.items())
@@ -37,7 +37,7 @@ for subdir, dirs, files in os.walk(rootdir):
 		
 		print(i,filedir)
 
-		if i >= 1502: # alter this conditional to define start, end or scope (like starting from previous error)
+		if i >= 0: # alter this conditional to define start, end or scope (like starting from previous error)
 			pdfFileObj = open(filedir,'rb')     #'rb' for read binary mode
 			
 			try:
