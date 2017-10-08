@@ -13,6 +13,7 @@ You can also add cleanup rules in a dict for ease of use.
 
 ### TO DO (priority low to high)
 - Exception '.PDF' instead of '.pdf' as target, dunno if needed/relevant?
+- Why do some .txt file names appear with the last char omitted? 
 - Dig into pdf protocols for more info on how to do things better
 - Maintain target directory structure in output.
 - Optimize for speed.
