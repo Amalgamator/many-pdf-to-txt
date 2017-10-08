@@ -1,6 +1,6 @@
 # Pyroselytism
 A very rudimentary script for converting a large quantity of pdf-files to txt-files, with pyPDF2 as it's only dependency.
-You can add cleanup rules in a dict for ease of use. 
+You can also add cleanup rules in a dict for ease of use. 
 
 *When thinking about conversion, I tend to be nostalgic and think back to the Age of Empires days. Wololooo! Since this script converts pdf files in large quantities with ease, it was either a monk manuscript duplication reference or this as its name.*
 
