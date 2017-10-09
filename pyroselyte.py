@@ -1,16 +1,12 @@
+"""
+A rudimentary pdf-to-txt script for multiple files in several directories (does not keep dir structure).
+"""
 import os
 import sys
 import re
 import PyPDF2
 
-# TO DO !
-# IV.  Dig into pdf protocols.
-# III. Maintain directory structure.
-# II.  Fix decode/encode issues.
-# I.   Optimize for speed.
-
-rootdir ='/your/top-level/directory/'
-
+rootdir ='/home/red-ibis/Documents/scifi_fantasy_collection'
 
 def cleanup(str_to_clean):
 	# rudimentary cleanup, examples 
@@ -18,9 +14,9 @@ def cleanup(str_to_clean):
 
 	# define desired replacements here
 	rep = { "™":" ", 
-		"Š":"—",
-		"€":" "
-	      } 
+			"Š":"—",
+			"€":" "
+		  } 
 
 	# the replacement in one pass over the string!
 	rep = dict((re.escape(k), v) for k, v in rep.items())
@@ -28,8 +24,10 @@ def cleanup(str_to_clean):
 	cleaned_str = pattern.sub(lambda m: rep[re.escape(m.group(0))], str_to_clean)
 	return cleaned_str
 
-
 i = 0
+fileRead_errs = 0
+extractwrite_errs = 0
+
 for subdir, dirs, files in os.walk(rootdir):
 	for file in files:
 		i += 1
@@ -37,7 +35,7 @@ for subdir, dirs, files in os.walk(rootdir):
 		
 		print(i,filedir)
 
-		if i >= 0: # alter this conditional to define start, end or scope (like starting from previous error)
+		if i >= 9325: # alter this conditional to define start, end or scope (like starting from previous error)
 			pdfFileObj = open(filedir,'rb')     #'rb' for read binary mode
 			
 			try:
@@ -45,6 +43,7 @@ for subdir, dirs, files in os.walk(rootdir):
 			except:
 				error_log = open("---ERRORS.TXT", 'w')
 				error_log.write(str(filedir) + '\n' + str(sys.exc_info()) + '\n')
+				fileRead_errs += 1
 				error_log.close()
 
 			text_file = open(file.strip(".pdf") + '.txt', "w")
@@ -57,13 +56,14 @@ for subdir, dirs, files in os.walk(rootdir):
 			except:
 				error_log = open("---ERRORS.TXT", 'w')
 				error_log.write(str(filedir) + '\n' + str(sys.exc_info()) + '\n')
+				extractwrite_errs += 1
 				error_log.close()
 
 			text_file.close()
 			pdfFileObj.close()
 
-print("Number of readErrors: " + fileRead_errs)
-print("Number of extract & writeErrors: " + extractwrite_errs)
+print("Number of readErrors: " + str(fileRead_errs))
+print("Number of extract & writeErrors: " + str(extractwrite_errs))
 print("See '---ERRORS.TXT' for more information...")
 
-input("Press any key to FINISH.")
+input("Press [ENTER] to FINISH.")
